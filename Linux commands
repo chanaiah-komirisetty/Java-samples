@@ -1,0 +1,172 @@
+df -h      disk space
+
+scp -r gtbank/ root@172.16.3.47:/home
+
+vi filename
+for searching:? name
+N for Next ,Shift N for previous
+
+i for insert
+:wq! for saving and quit
+:q! quit
+
+
+/ for search
+N for next
+ esacpe :wq save
+dd to dleete row
+escape :q to quit
+
+vi & vim are command mode editors for files.
+vi--> visual display editor
+vim--> visual display editor improved
+
+Other editors in Linux are gedit,nano,emacs,gVim.
+gedit --> gedit is the default text editor for the GNOME desktop environment.
+gVim --> graphical version of famous vim editor
+
+vi editor is the most popular.
+It has 3 modes
+1. Command mode
+2. Insert mode(edit mode)
+3. extended command mode
+
+When you open the vim editor, it will be in command mode by default.
+In command mode the cursors can be used as h/l/k/j to move cursor /left/right/up/down
+
+Insert Mode :
+i -> to begin insert mode at cursor position
+I -> to insert at begining of the line
+a -> to append to next word letter
+A -> to append to the end of line
+o -> to insert a new line below the cursor position
+O -> to insert a new line above the cusrsor position
+
+Command mode
+gg -> to go to the begining of the page
+G  -> to go to end of the page
+w  -> to move the cursor forward, word by word
+b  -> to move the cursor backward, word by word
+nw -> to move the cussor forward to n words(5W)
+nb -> to move the cursor backward to n words(5B)
+u  -> to undo last change (word)
+U  -> to undo the previous changes (enter line)
+ctrl+R -> to redo the changes
+yy -> to copy a line
+nyy-> to copy n lines(5yy or 6yy)
+p  -> to paste line below the cursor position
+P  -> to paste line above the cursor position
+dw -> to delete the word letter by letter (like backspace)
+x  -> to delte the word letter by letter (like DEL key)
+dd -> to delete entire line
+ndd -> to delete
+/  -> to search a word in a file
+History search works like this:
+	* 
+Esc to enter command mode
+	* 
+/ to begin search
+	* 
+Type text of search string
+	* 
+Enter to perform search
+	* 
+n to go to next match
+	* 
+N to jump back to the previous match
+	* 
+i to get back into insert mode
+	* 
+Enter to run command
+
+
+
+Extended mode :(colon Mode)
+Extended mode is used for save and quit or save without quit using "ESC" with ":"
+Esc+:w -> to save the changes
+Esc+:q -> to quit without saving
+Esc+:wq -> to save and quit
+Esc+:w! -> to save forcefully
+Esc+:wq! -> to save and quit forcefully
+Esc+:x -> to save and quit
+Esc+:X -> to give password to the file and remove password
+Esc+:10(n) -> to go to line no 10 or n
+Esc+:se nu -> to set the line numbers to the file
+Esc+:se nonu -> to remove the set line numbers
+
+Find all files containing specific word.
+ 
+grep -rnw '/path/to/somewhere/' -e 'pattern'
+
+	* 
+-r or -R is recursive,
+	* 
+-n is line number, and
+	* 
+-w stands for match the whole word.
+	* 
+-l (lower-case L) can be added to just give the file name of matching files.
+
+
+
+To open mulitiple fils in vim editor
+$vim -o file1 file2
+to switch between two files ctrl+w
+
+-----------------------------------------
+---------------------------------------
+---------------------------------
+
+Symobolic link
+
+There are two types of links
+soft link
+Hard link
+
+Soft Link :
+1. Size of soft link is equal to no of chractersin the name of orginal file
+2. Inode no of source and link file is different
+3. if orginal file is deleted, links is broken & data is lost
+4. can be created across the partition
+5. shortcut file
+
+syntax :
+$ ln -s <source> <destination>
+$ln -s amrita amrita.slink
+$ls -li amrita amrita.slink
+
+
+Hard link
+1. size of both file is same
+2. Can't be created across the partition
+3. Inode no of both files is same
+4. if orginal file is deleted then also link will contain data
+5. backup file
+
+syntax :
+$ln <source> <destination>
+$ln -amrita amrita.hlink
+$ls -li amrita amrita.hlink
+
+to search particular text in directory.
+  grep exception * 
+
+top  --to get cpu utilization.
+1 to get how many CPU cores.
+
+ du -sh * --to get the directory with size.
+
+
+vi /etc/security/limits.conf
+
+change to 655535 
+add this
+mfino - memlock 2097152
+
+
+
+tar -xvzf file.tar.gz --to unzip
+
+chown mfino /app/mfino/middleware/activemq-transaction/data/kahadb/db-349.log
+
+chown -R mfino:mfino logstash-6.2.3/
